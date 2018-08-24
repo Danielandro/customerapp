@@ -52,16 +52,33 @@ app.use(expressValidator({
   }
 }));
 
-//DEAL WITH GET REQUEST (E.G. WHEN PAGE LOADS, LOAD USERS)
-app.get('/', (req, res) => { // handle a GET request from website (data usually POST). / = homepage
-  db.users.find(function (err, docs) { // docs is an array of all the documents in users collection
-  	res.render('index', {
-      title: 'Customers',
-      users: docs // title is used by ejs to point to asset
-    }); // use send method print response to screen
+function dbCall(callback) {
+  db.users.find(function (err, docs){
+    return callback(docs);
   })
+};
+
+app.get('/', (req, res) => { // handle a GET request from website (data usually POST). / = homepage
+
+  dbCall(function(docs){
+    res.render('index', {
+    title: 'Customers',
+    users: docs // title is used by ejs to point to asset
+  })
+  }); 
 
 });
+
+// //DEAL WITH GET REQUEST (E.G. WHEN PAGE LOADS, LOAD USERS)
+// app.get('/', (req, res) => { // handle a GET request from website (data usually POST). / = homepage
+//   db.users.find(function (err, docs) { // docs is an array of all the documents in users collection
+//   	res.render('index', {
+//       title: 'Customers',
+//       users: docs // title is used by ejs to point to asset
+//     }); // use send method print response to screen
+//   })
+
+// });
 
 //DEAL WITH POST REQUEST (E.G. FORM SUBMISSION)
 app.post('/users/add', (req, res) => {
@@ -71,12 +88,22 @@ app.post('/users/add', (req, res) => {
 
   let errors = req.validationErrors();
 
-  if(errors){ // check for errors. If yes, this prints to cmd. If none, newUser object is created
+  // if(errors){ // check for errors. If yes, this prints to cmd. If none, newUser object is created
+  //     res.render('index', {
+  //       title: 'Customers',
+  //       users: users,
+  //       errors: errors
+  //   });
+
+  if (errors) { // check for errors. If yes, this prints to cmd. If none, newUser object is created
+    dbCall(function(docs){
       res.render('index', {
         title: 'Customers',
         users: users,
         errors: errors
-    });
+      });
+    })
+    
       console.log('ERRORS'); // empty input message
     }else {
       let newUser = { // form data is put into this object
