@@ -1,0 +1,30 @@
+<% include partials/header %>
+<h1>Add Customer</h1>
+  <% if (errors != undefined){ %>
+    <ul>
+      <% errors.forEach(error => { %> <!-- runs if error occurs when retrieving from database -->
+        <li><%= error.msg %></li>
+        <% }); %>
+    </ul>
+  <% } %>
+
+ <form method="POST" action="/users/add"> <!--POST is request method. action = route info to be submitted to -->
+      <label>First Name</label><br>
+       <input type="text" name="first_name">
+       <br>
+      <label>Last Name</label><br>
+       <input type="text" name="last_name">
+       <br>
+      <label>Email</label><br>
+       <input type="text" name="email">
+       <br><br>
+     <input type="submit" value="Submit">
+ </form>
+     <h1><%= title %></h1>
+     <ul>
+     <% users.forEach(user => { %>
+       <li><%= user.first_name %> <%= user.last_name %> - <a href="#" class="deleteUser" data-id="<%= user._id %>">Delete</a></li>
+<!--data.id is set to equal the _id of the chosen user-->
+     <%  }) %>
+   </ul>
+ <% include partials/footer %>
