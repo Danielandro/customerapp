@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');// used to simplify file paths(Core module)
 const expressValidator = require('express-validator'); // for form validation
 const mongojs = require('mongojs'); // connect to MongoDB database
-const db = mongojs('MONGOLAB_URI', ['users']);
+const databaseUri = process.env.MONGOLAB_URI;
+const db = mongojs(databaseUri, ['users']);
 //var ObjectId = require("mongojs").ObjectId;
 const app = express(); //initialise a variable = express function
 
