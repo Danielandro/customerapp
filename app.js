@@ -99,7 +99,7 @@ app.post('/users/add', (req, res) => {
     dbCall(function(docs){
       res.render('index', {
         title: 'Customers',
-        users: users,
+        users: docs,
         errors: errors
       });
     })
