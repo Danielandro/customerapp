@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');// used to simplify file paths(Core module)
 const expressValidator = require('express-validator'); // for form validation
 const mongojs = require('mongojs'); // connect to MongoDB database
-const db = mongojs('customerapp', ['users']);
+const db = mongojs('MONGOLAB_URI', ['users']);
 //var ObjectId = require("mongojs").ObjectId;
 const app = express(); //initialise a variable = express function
 
@@ -109,3 +109,4 @@ app.delete('/users/delete/:id', (req, res) => { //id is unique to user
 app.listen(3000, () => { // listener on port 3000, responds with a callback message
   console.log('server started on port 3000...');
 });
+
