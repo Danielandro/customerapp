@@ -1,3 +1,4 @@
+// jquery + this file are loaded in the ejs header template
 $(document).ready(function() {
   $('.deleteUser').on('click', deleteUser); // run below function on click
 });

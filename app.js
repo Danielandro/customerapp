@@ -52,7 +52,7 @@ app.use(expressValidator({
   }
 }));
 
-function dbCall(callback) {
+function getUsers(callback) {
   db.users.find(function (err, docs){
     return callback(docs);
   })
@@ -60,10 +60,10 @@ function dbCall(callback) {
 
 app.get('/', (req, res) => { // handle a GET request from website (data usually POST). / = homepage
 
-  dbCall(function(docs){
+  getUsers(function(users){
     res.render('index', {
     title: 'Customers',
-    users: docs // title is used by ejs to point to asset
+    users: users // title is used by ejs to point to asset
   })
   }); 
 
@@ -96,14 +96,13 @@ app.post('/users/add', (req, res) => {
   //   });
 
   if (errors) { // check for errors. If yes, this prints to cmd. If none, newUser object is created
-    dbCall(function(docs){
+    getUsers(function(users){
       res.render('index', {
         title: 'Customers',
-        users: docs,
+        users: users,
         errors: errors
       });
-    })
-    
+    })    
       console.log('ERRORS'); // empty input message
     }else {
       let newUser = { // form data is put into this object
