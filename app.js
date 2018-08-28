@@ -1,11 +1,12 @@
 //load all modules we need to use
+const dotenv = require('dotenv').config();
 const express = require('express'); // for creating server
 const bodyParser = require('body-parser');
 const path = require('path');// used to simplify file paths(Core module)
 const expressValidator = require('express-validator'); // for form validation
 const mongojs = require('mongojs'); // connect to MongoDB database
 const databaseUri = process.env.MONGOLAB_URI;
-const db = mongojs(databaseUri || 'customerapp', ['users']);
+const db = mongojs(databaseUri, ['users']);
 //var ObjectId = require("mongojs").ObjectId;
 const app = express(); //initialise a variable = express function
 
