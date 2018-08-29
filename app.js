@@ -53,7 +53,8 @@ app.use(expressValidator({
   }
 }));
 
-function getUsers(callback) {
+// connect to db, find & return all docs 
+function getAllUsers(callback) {
   db.users.find(function (err, docs){
     return callback(docs);
   })
@@ -61,7 +62,7 @@ function getUsers(callback) {
 
 app.get('/', (req, res) => { // handle a GET request from website (data usually POST). / = homepage
 
-  getUsers(function(users){
+  getAllUsers(function(users){
     res.render('index', {
     title: 'Customers',
     users: users // title is used by ejs to point to asset
@@ -97,7 +98,7 @@ app.post('/users/add', (req, res) => {
   //   });
 
   if (errors) { // check for errors. If yes, this prints to cmd. If none, newUser object is created
-    getUsers(function(users){
+    getAllUsers(function(users){
       res.render('index', {
         title: 'Customers',
         users: users,
