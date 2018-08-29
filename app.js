@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public'))); // public = name of fol
 //GLOBAL VARIABLES - needs to be in its own middleware
 //all global variables can be placed here using the same syntax (res.locals.NameHere)
 app.use(function(req,res,next){
-  res.locals.errors = null; //default value
+  res.locals.errors = null; //default value - clear error value so expressValidator can use it
   next();
 });
 
