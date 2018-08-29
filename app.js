@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');// used to simplify file paths(Core module)
 const expressValidator = require('express-validator'); // for form validation
 const mongojs = require('mongojs'); // connect to MongoDB database
-const databaseUri = process.env.MONGOLAB_URI;
+const databaseUri = process.env.MONGOLAB_URI; // db connection string
 const db = mongojs(databaseUri, ['users']);
 //var ObjectId = require("mongojs").ObjectId;
 const app = express(); //initialise a variable = express function
@@ -46,9 +46,9 @@ app.use(expressValidator({
       formParam += '[' + namespace.shift() + ']';
     }
     return {
-      param: formParam,
-      msg: msg,
-      value
+      param: formParam, // location of error e.g. req.body.first_name
+      msg: msg, // error message for this parameter
+      value // no value required
     };
   }
 }));
