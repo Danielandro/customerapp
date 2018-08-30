@@ -15,5 +15,8 @@
     "mongojs": "^2.6.0"
   },
   "author": "Daniel Ajilore",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
 }
