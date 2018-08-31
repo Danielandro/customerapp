@@ -1,3 +1,7 @@
+:root {
+    --text: #707070;    
+}
+
 html, body {
     background: #FBB171;
 }
@@ -7,9 +11,17 @@ html, body {
     text-align: center;
     width: 30%;
     margin: 100px auto 0;
-    border: 2px solid #707070;
+    border: 2px solid var(--text);
 }
 
-h1 {
-    color: red;
+#form-header {
+    color: var(--text);
+    font-size: 25px;
 }
+
+label {
+    position: relative;
+    left: -50px;
+    text-align: left;
+}
+

@@ -1,6 +1,6 @@
 <% include partials/header %>
 <div class="form-container">
-<h1>Add Customer</h1>
+<h1 id="form-header">Add Customer</h1>
   <% if (errors != undefined){ %>
     <ul>
       <% errors.forEach(error => { %> <!-- runs if error occurs when retrieving from database -->
@@ -10,14 +10,14 @@
   <% } %>
 
  <form method="POST" action="/users/add"> <!--POST is request method. action = route info to be submitted to -->
-      <label>First Name</label><br>
-       <input type="text" name="first_name">
+      <label for="first_name">First Name</label><br>
+       <input type="text" name="first_name" id="first_name">
        <br>
-      <label>Last Name</label><br>
-       <input type="text" name="last_name">
+      <label for="last_name">Last Name</label><br>
+       <input type="text" name="last_name" id="last_name">
        <br>
-      <label>Email</label><br>
-       <input type="text" name="email">
+      <label for="email">Email</label><br>
+       <input type="text" name="email" id="email">
        <br><br>
      <input type="submit" value="Submit">
  </form>
