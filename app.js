@@ -26,7 +26,7 @@ app.use(bodyParser.json()); // will handle json content from request
 app.use(bodyParser.urlencoded({extended: false})); // new obj will contain string or array value
 
 //SET STATIC PATH E.G CSS, JQUERY DATA
-app.use(express.static(path.join(__dirname, 'public'))); // public = name of folder containing static assets, __dirname = current directory
+app.use(express.static(path.join(__dirname,'public'))); // public = name of folder containing static assets, __dirname = current directory
 
 //GLOBAL VARIABLES - needs to be in its own middleware
 //all global variables can be placed here using the same syntax (res.locals.NameHere)

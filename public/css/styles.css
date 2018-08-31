@@ -1,9 +1,11 @@
 :root {
-    --text: #707070;    
+    --text: #707070;
+    --page-background: #FBB171; 
+    --button-color: #67DCB0;   
 }
 
 html, body {
-    background: #FBB171;
+    background: var(--page-background);
 }
 
 .form-container {
@@ -25,3 +27,11 @@ label {
     text-align: left;
 }
 
+input[type="submit"] {
+    background-color: var(--button-color);
+    color: var(--text   );
+    border: 1px solid var(--text);
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 12px;
+}
