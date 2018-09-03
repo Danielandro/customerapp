@@ -22,6 +22,7 @@
      <input type="submit" value="Submit">
  </form>
 </div>
+<div class="user-list">
      <h1><%= title %></h1>
      <ul>
      <% users.forEach(user => { %>
@@ -29,4 +30,5 @@
 <!--data.id is set to equal the _id of the chosen user-->
      <%  }) %>
    </ul>
+  </div>
  <% include partials/footer %>
