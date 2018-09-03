@@ -2,7 +2,7 @@
 <div class="form-container">
 <h1 id="form-header">Add Customer</h1>
   <% if (errors != undefined){ %>
-    <ul>
+    <ul id="error-list">
       <% errors.forEach(error => { %> <!-- runs if error occurs when retrieving from database -->
         <li><%= error.msg %></li>
         <% }); %>
