@@ -9,7 +9,7 @@ const databaseUri = process.env.MONGOLAB_URI; // db connection string
 const db = mongojs(databaseUri, ['users']);
 //var ObjectId = require("mongojs").ObjectId;
 const app = express(); //initialise a variable = express function
-
+const port = process.env.PORT || 3000;
 
 /*const logger = function(req, res, next){ // custom middleware. Takes req, res & next function as parameters
   console.log('Logging...'); //displays in console every time page reloads i.e. request is made
@@ -135,7 +135,7 @@ app.delete('/users/delete/:id', (req, res) => { //id is unique to user
 
 });
 
-app.listen(3000, () => { // listener on port 3000, responds with a callback message
+app.listen(port, () => { // listener on port 3000, responds with a callback message
   console.log('server started on port 3000...');
 });
 
