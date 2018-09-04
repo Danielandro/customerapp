@@ -59,6 +59,7 @@ input {
 .user-list ul {
     list-style-type: none;
     line-height: 1.5;
+    padding: 0;
 }
 
 .deleteUser {
