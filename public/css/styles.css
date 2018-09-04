@@ -58,4 +58,11 @@ input {
 
 .user-list ul {
     list-style-type: none;
+    line-height: 1.5;
+}
+
+.deleteUser {
+    text-decoration: none;
+    font-weight: bold;
+    color: #ca104eb7;
 }
