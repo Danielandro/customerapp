@@ -18,6 +18,7 @@
   "author": "Daniel Ajilore",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "lodash": ">=4.17.11"
   }
 }
