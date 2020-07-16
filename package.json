@@ -19,6 +19,6 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^1.18.4",
-    "lodash": ">=4.17.13"
+    "lodash": ">=4.17.19"
   }
 }
