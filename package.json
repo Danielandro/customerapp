@@ -13,7 +13,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "express-validator": "^4.3.0",
-    "mongojs": "^2.6.0"
+    "mongojs": "^3.1.0"
   },
   "author": "Daniel Ajilore",
   "license": "ISC",
