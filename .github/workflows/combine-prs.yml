@@ -73,6 +73,7 @@ jobs:
                   };
                   const result = await github.graphql(stateQuery, vars);
                   const [{ commit }] = result.repository.pullRequest.commits.nodes;
+                  console.log('Commit: ', commit)
                   const state = commit.statusCheckRollup.state
                   console.log('Validating status: ' + state);
                   if(state != 'SUCCESS') {
